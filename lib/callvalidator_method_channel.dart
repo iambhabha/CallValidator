@@ -16,12 +16,12 @@ class MethodChannelCallvalidator extends CallvalidatorPlatform {
   }
 
   @override
-   Future<bool> checkForActiveCall() async {
+  Future<bool> checkForActiveCall() async {
     try {
-      final bool isInCall =
-      await methodChannel.invokeMethod('checkForActiveCall');
+      final bool isInCall = await methodChannel.invokeMethod('checkForActiveCall');
       return isInCall;
     } on PlatformException catch (e) {
+      debugPrint(e.toString());
       // Handle error here
       return false;
     }

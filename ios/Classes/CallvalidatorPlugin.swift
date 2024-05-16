@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import CallKit
 
 public class CallvalidatorPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -12,6 +13,9 @@ public class CallvalidatorPlugin: NSObject, FlutterPlugin {
     switch call.method {
     case "getPlatformVersion":
       result("iOS " + UIDevice.current.systemVersion)
+    case "checkForActiveCall":
+      let isInCall = CallUtils.checkForActiveCall()
+      result(isInCall)
     default:
       result(FlutterMethodNotImplemented)
     }

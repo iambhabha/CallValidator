@@ -27,7 +27,7 @@ abstract class CallvalidatorPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<String?> checkForActiveCall() {
+  Future<bool?> checkForActiveCall() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }

@@ -1,7 +1,7 @@
 name: callvalidator
-description: "CallValidator is a Flutter Dart plugin designed to enhance code quality by validating function calls and returning a boolean value indicating their validity. With CallValidator, developers can easily check the correctness of function invocations within their Flutter applications. Whether it's ensuring the proper parameters are passed or verifying the function's existence, CallValidator offers a seamless solution for error prevention and code validation. By integrating CallValidator into your project, you can enhance your development workflow and minimize potential runtime errors, resulting in more robust and reliable Flutter applications."
+description: "CallValidator enhances Flutter code quality by validating function calls, ensuring parameter correctness and function existence. Integrate to minimize runtime errors and enhance app reliability."
 version: 0.0.1
-homepage:
+homepage: https://github.com/iambhabha/CallValidator
 
 environment:
   sdk: '>=3.2.2 <4.0.0'
@@ -41,15 +41,6 @@ flutter:
         pluginClass: CallvalidatorPlugin
       ios:
         pluginClass: CallvalidatorPlugin
-      linux:
-        pluginClass: CallvalidatorPlugin
-      macos:
-        pluginClass: CallvalidatorPlugin
-      windows:
-        pluginClass: CallvalidatorPluginCApi
-      web:
-        pluginClass: CallvalidatorWeb
-        fileName: callvalidator_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

@@ -1,11 +1,15 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -46,6 +50,7 @@ class _MyAppState extends State<MyApp> {
       final bool result = await platform.invokeMethod('checkForActiveCall');
       isInCall = result;
     } on PlatformException catch (e) {
+      debugPrint(e.toString());
       isInCall = false; // Handle error here
     }
 
@@ -59,7 +64,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('CallValidator Example'),
+          title: const Text('CallValidator Example'),
         ),
         body: Center(
           child: Column(
