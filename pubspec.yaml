@@ -1,6 +1,6 @@
 name: callvalidator
 description: "CallValidator enhances Flutter code quality by validating function calls, ensuring parameter correctness and function existence. Integrate to minimize runtime errors and enhance app reliability."
-version: 2.0.3
+version: 2.0.4
 homepage: https://github.com/iambhabha/CallValidator
 
 environment:
