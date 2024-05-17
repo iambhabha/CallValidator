@@ -24,7 +24,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    Callvalidator callvalidatorPlugin = Callvalidator();
     MockCallvalidatorPlatform fakePlatform = MockCallvalidatorPlatform();
     CallvalidatorPlatform.instance = fakePlatform;
   });
