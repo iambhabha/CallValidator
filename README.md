@@ -13,3 +13,72 @@ For help getting started with Flutter development, view the
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+# Callvalidator Package
+
+The `Callvalidator` package provides a simple interface to check the platform version and determine if there is an active call on the device. This package is implemented using the Singleton pattern to ensure a single instance is used throughout the application.
+
+## Installation
+
+Add the following dependency to your `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  callvalidator: ^1.0.0
+  
+
+import 'package:callvalidator/callvalidator.dart';
+
+void main() async {
+  // Access the singleton instance
+  Callvalidator callValidator = Callvalidator.instance;
+
+  // Get the platform version
+  String? platformVersion = await callValidator.getPlatformVersion();
+  print('Platform Version: $platformVersion');
+
+  // Check for active call
+  bool? isActiveCall = await callValidator.checkForActiveCall();
+  print('Is there an active call? $isActiveCall');
+}
+
+
+import 'package:flutter/material.dart';
+import 'package:callvalidator/callvalidator.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Callvalidator Example'),
+        ),
+        body: Center(
+          child: FutureBuilder(
+            future: _checkForCall(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator();
+              } else if (snapshot.hasError) {
+                return Text('Error: ${snapshot.error}');
+              } else {
+                return Text('Is there an active call? ${snapshot.data}');
+              }
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<bool?> _checkForCall() async {
+    Callvalidator callValidator = Callvalidator.instance;
+    return await callValidator.checkForActiveCall();
+  }
+}
+
+
