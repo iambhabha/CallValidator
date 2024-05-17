@@ -24,10 +24,13 @@ Add the following dependency to your `pubspec.yaml` file:
 ```yaml
 dependencies:
   callvalidator: ^1.0.0
+```
   
-
+```
 import 'package:callvalidator/callvalidator.dart';
+``` 
 
+```
 void main() async {
   // Access the singleton instance
   Callvalidator callValidator = Callvalidator.instance;
@@ -80,5 +83,5 @@ class MyApp extends StatelessWidget {
     return await callValidator.checkForActiveCall();
   }
 }
-
+```
 
